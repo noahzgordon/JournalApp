@@ -1,11 +1,10 @@
 JournalApp.Views.PostShow = Backbone.View.extend({
   template: JST["posts/show"],
 
-  initialize: function (id) {
-    this.post = JournalApp.Collections.posts.getOrFetch(id);
+  initialize: function () {
   },
 
   render: function () {
-    this.$el.html({ post: this.post })
+    this.$el.html(this.template({ post: this.model }))
   }
 })
