@@ -4,6 +4,9 @@
       <a href="#/posts/<%= post.get("id") %>">
         <%= post.get("title") %>
       </a>
+        <button class="post-edit" data-id="<%= post.get("id") %>">
+          Edit
+        </button>
         <button class="post-delete" data-id="<%= post.get("id") %>">
           Delete
         </button>
