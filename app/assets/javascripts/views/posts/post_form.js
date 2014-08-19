@@ -10,11 +10,24 @@ JournalApp.Views.PostForm = Backbone.View.extend({
 
   updatePost: function (event) {
     event.preventDefault();
-    var data = $(event.currentTarget).serializeJSON();
-    _.extend(this.model.attributes, data)
+    var formData = $(event.currentTarget).serializeJSON();
+    _.extend(this.model.attributes, formData);
 
-    this.model.save();
-    Backbone.history.navigate("/", { trigger: true });
+    this.model.save({}, {
+      success: function () {
+        Backbone.history.navigate("/", { trigger: true });
+      },
+
+      error: function (model, response) {
+        var errorHtml = "<ul>";
+        JSON.parse(response.responseText).forEach(function(error){
+          errorHtml += "<li>" + error + "</li>";
+        })
+        errorHtml += "</ul>";
+
+        $(".error-bar").html(errorHtml);
+      }
+    });
   },
 
   render: function () {
