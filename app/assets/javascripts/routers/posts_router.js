@@ -7,13 +7,7 @@ JournalApp.Routers.Posts = Backbone.Router.extend({
   },
 
   postsIndex: function () {
-    JournalApp.Collections.posts.fetch({
-      success: function () {
-        var indexView = new JournalApp.Views.PostsIndex();
-        indexView.render();
-        $("#sidebar").html(indexView.$el);
-      }
-    })
+
   },
 
   postShow: function(id) {

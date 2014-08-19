@@ -4,8 +4,16 @@ window.JournalApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new JournalApp.Routers.Posts();
-    Backbone.history.start();
+    JournalApp.Collections.posts.fetch({
+      success: function () {
+        var indexView = new JournalApp.Views.PostsIndex();
+        indexView.render();
+        $("#sidebar").html(indexView.$el);
+
+        new JournalApp.Routers.Posts();
+        Backbone.history.start();
+      }
+    })
   }
 };
 
