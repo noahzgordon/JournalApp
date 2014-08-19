@@ -4,7 +4,7 @@ JournalApp.Views.PostsIndex = Backbone.View.extend({
   initialize: function() {
     this.listenTo(
       JournalApp.Collections.posts,
-      "add change:title remove reset",
+      "add change remove reset",
       this.render
     );
   },
@@ -15,7 +15,7 @@ JournalApp.Views.PostsIndex = Backbone.View.extend({
 
   deletePost: function(event) {
     var id = $(event.target).attr("data-id")
-    var post = JournalApp.Collections.posts.get(id)
+    var post = JournalApp.Collections.posts.getOrFetch(id)
 
     post.destroy();
   },
