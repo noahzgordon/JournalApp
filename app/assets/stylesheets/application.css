@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, div, h1, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+h1, h3, p, a {
+  font-family: Verdana;
+  color: #6E91A1;
+}
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+h3 {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+a:hover {
+  color: white;
+}
+
+
+#sidebar {
+  float: left;
+  display: block;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  background-color: #27556C;
+}
+
+#main {
+  background-color: #313975;
+  width: 80%;
+  height: 100%;
+  float: right;
+  display: block;
+}
+
+#container {
+
+}

@@ -5,29 +5,34 @@ JournalApp.Views.PostForm = Backbone.View.extend({
   },
 
   events: {
-    "submit #update-form": "updatePost"
+    "submit #post-form": "submitForm"
   },
 
-  updatePost: function (event) {
+  submitForm: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     _.extend(this.model.attributes, formData);
 
-    this.model.save({}, {
-      success: function () {
-        Backbone.history.navigate("/", { trigger: true });
-      },
+    if (this.model.isNew()) {
+      this.collection.create(this.model, this.options)
+    } else {
+      this.model.save({}, this.options);
+    }
+  },
 
-      error: function (model, response) {
-        var errorHtml = "<ul>";
-        JSON.parse(response.responseText).forEach(function(error){
-          errorHtml += "<li>" + error + "</li>";
-        })
-        errorHtml += "</ul>";
+  options: {
+    success: function () {
+      Backbone.history.navigate("/", { trigger: true });
+    },
+    error: function (model, response) {
+      var errorHtml = "<ul>";
+      JSON.parse(response.responseText).forEach(function(error){
+        errorHtml += "<li>" + error + "</li>";
+      })
+      errorHtml += "</ul>";
 
-        $(".error-bar").html(errorHtml);
-      }
-    });
+      $(".error-bar").html(errorHtml);
+    }
   },
 
   render: function () {
