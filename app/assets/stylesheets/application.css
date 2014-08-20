@@ -23,7 +23,7 @@ html, body, div, h1, h3, p, ul, li {
 
 h1, h3, p, a {
   font-family: Verdana;
-  color: #6E91A1;
+  color: #370037;
 }
 
 html, body {
@@ -62,20 +62,33 @@ a:hover {
   display: block;
   width: 25%;
   height: 100%;
-  background-color: #27556C;
+  background-color: #8A458A;
+}
+
+#sidebar ul {
+	margin-top: 40px;
+	text-align: center;
+}
+
+#sidebar ul > li {
+	margin: 20px;
+	text-align: center;
+}
+
+#sidebar > div > a {
+	text-align: center;
+	font-size: 20px;
+	color: #530E53;
 }
 
 #main {
-  background-color: #313975;
+  background-color: #A66FA6;
   height: 100%;
   width: 75%;
   float: left;
   display: block;
 }
 
-#container {
-
-}
 
 #title-input, #body-input {
   text-align: center;
@@ -89,4 +102,15 @@ a:hover {
 
 #body-input {
   font-size: 15px;
+}
+
+form {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+form > label {
+	color: #fff;
+	font-size: 25px;
 }

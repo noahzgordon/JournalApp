@@ -3,6 +3,9 @@
 <% var submit = (post.isNew()) ? "Create Post" : "Update Post" %>
 <form id="post-form">
   <label for="post-title">Title</label>
+	
+	<br>
+	
   <input type="text"
          name="title"
          id="post-title"
@@ -10,7 +13,7 @@
 
   <br>
 
-  <label for="post-body">Post</label>
+  <label for="post-body">Content</label>
   <br>
   <textarea name="body"
             id="post-body"><%= post.get("body") %></textarea>

@@ -8,7 +8,23 @@ JournalApp.Views.PostShow = Backbone.View.extend({
     "dblclick #post-title": "selectTitle",
     "dblclick #post-body": "selectBody",
     "blur #title-input": "editTitle",
-    "blur #body-input": "editBody"
+    "blur #body-input": "editBody",
+    "click .post-delete": "deletePost",
+    "click .post-edit": "editPost"
+		
+  },
+
+  deletePost: function(event) {
+    var id = $(event.target).attr("data-id")
+    var post = JournalApp.Collections.posts.getOrFetch(id)
+
+    post.destroy();
+		Backbone.history.navigate("/", { trigger: true });
+  },
+
+  editPost: function(event) {
+    var id = $(event.target).attr("data-id");
+    Backbone.history.navigate("posts/" + id + "/edit", { trigger: true });
   },
 
   selectTitle: function (event) {

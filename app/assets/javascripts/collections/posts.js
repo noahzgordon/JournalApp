@@ -2,6 +2,9 @@ JournalApp.Collections.Posts = Backbone.Collection.extend({
   url: "posts",
 
   model: JournalApp.Models.Post,
+	
+	comparator: "created_at",
+	
   getOrFetch: function (id) {
     var that = this;
     if (!this.get(id)) {

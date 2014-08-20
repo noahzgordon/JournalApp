@@ -7,7 +7,10 @@ JournalApp.Routers.Posts = Backbone.Router.extend({
   },
 
   postsIndex: function () {
-
+		var rootView = new JournalApp.Views.Root();
+		
+		rootView.render();
+		$("#container").html(rootView.$el);
   },
 
   postShow: function(id) {

@@ -1,2 +1,9 @@
 <h3 id="post-title"><%= post.get("title") %></h3>
 <p id="post-body"><%= post.get("body") %></p>
+
+<button class="post-edit" data-id="<%= post.get("id") %>">
+  Edit
+</button>
+<button class="post-delete" data-id="<%= post.get("id") %>">
+  Delete
+</button>
